@@ -6,12 +6,12 @@
 Summary:	Beagle C interface
 Summary(pl.UTF-8):	Interfejs w C do Beagle
 Name:		libbeagle
-Version:	0.3.5.1
-Release:	2
+Version:	0.3.9
+Release:	1
 License:	MIT
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libbeagle/0.3/%{name}-%{version}.tar.bz2
-# Source0-md5:	b72a8c38a80e2a13f164b0437e539a93
+# Source0-md5:	af1e25bdfb704ee87047bc49a73fbb10
 URL:		http://beagle-project.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -108,19 +108,22 @@ Wiązania języka Python dla Beagle.
 	%{?with_apidocs:--enable-gtk-doc} \
 	--with-html-dir=%{_gtkdocdir}
 
-%{__make}
+%{__make} \
+	pythondir=%{py_sitedir}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	pythondir=%{py_sitedir}
 
 cp examples/*.c $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %if %{with python}
-rm -f $RPM_BUILD_ROOT%{py_sitedir}/beagle.{a,la}
+rm -f $RPM_BUILD_ROOT%{py_sitedir}/beagle/beagle.{a,la}
+%py_postclean
 %endif
 
 %clean
@@ -133,6 +136,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS COPYING ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/libbeagle.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libbeagle.so.1
 
 %files devel
 %defattr(644,root,root,755)
@@ -158,5 +162,7 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with python}
 %files -n python-beagle
 %defattr(644,root,root,755)
-%attr(755,root,root) %{py_sitedir}/beagle.so
+%attr(755,root,root) %{py_sitedir}/beagle/beagle.so
+%dir %{py_sitedir}/beagle
+%{py_sitedir}/beagle/*.py[co]
 %endif
