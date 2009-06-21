@@ -7,11 +7,12 @@ Summary:	Beagle C interface
 Summary(pl.UTF-8):	Interfejs w C do Beagle
 Name:		libbeagle
 Version:	0.3.9
-Release:	1
+Release:	2
 License:	MIT
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libbeagle/0.3/%{name}-%{version}.tar.bz2
 # Source0-md5:	af1e25bdfb704ee87047bc49a73fbb10
+Patch0:		%{name}-am.patch
 URL:		http://beagle-project.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -97,6 +98,7 @@ Wiązania języka Python dla Beagle.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__libtoolize}
