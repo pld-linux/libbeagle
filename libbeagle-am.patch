@@ -1,0 +1,10 @@
+--- libbeagle-0.3.9/beagle/Makefile.am	2008-02-11 17:25:00.000000000 +0100
++++ libbeagle-0.3.9/beagle/Makefile.am	2009-06-21 14:05:24.957500320 +0200
+@@ -81,7 +81,6 @@
+ 	beagle-query-part-or.h			\
+ 	beagle-query-part-property.h		\
+ 	beagle-query-part-text.h		\
+-	beagle-query-part-property.h		\
+ 	beagle-query-part-wildcard.h		\
+ 	beagle-query-part-uri.h			\
+ 	beagle-queryable-status.h		\
