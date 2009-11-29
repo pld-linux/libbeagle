@@ -16,6 +16,7 @@ Patch0:		%{name}-am.patch
 URL:		http://beagle-project.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	docbook-dtd412-xml
 BuildRequires:	glib2-devel >= 1:2.6.0
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.0}
 BuildRequires:	libtool
@@ -25,6 +26,7 @@ BuildRequires:	pkgconfig
 BuildRequires:	python-devel
 BuildRequires:	python-pygobject-devel >= 2.6.0
 BuildRequires:	python-pygtk-devel >= 2:2.6.0
+BuildRequires:	rpm-pythonprov
 %endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
