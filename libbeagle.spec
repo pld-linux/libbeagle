@@ -7,7 +7,7 @@ Summary:	Beagle C interface
 Summary(pl.UTF-8):	Interfejs w C do Beagle
 Name:		libbeagle
 Version:	0.3.9
-Release:	2
+Release:	3
 License:	MIT
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libbeagle/0.3/%{name}-%{version}.tar.bz2
