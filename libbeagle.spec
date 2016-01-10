@@ -2,12 +2,12 @@
 # Conditional build:
 %bcond_without	apidocs		# don't build API documentation
 %bcond_without	python		# don't build python libraries
-#
+
 Summary:	Beagle C interface
 Summary(pl.UTF-8):	Interfejs w C do Beagle
 Name:		libbeagle
 Version:	0.3.9
-Release:	4
+Release:	5
 License:	MIT
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libbeagle/0.3/%{name}-%{version}.tar.bz2
@@ -67,6 +67,9 @@ Summary:	libbeagle API documentation
 Summary(pl.UTF-8):	Dokumentacja API biblioteki libbeagle
 Group:		Documentation
 Requires:	gtk-doc-common
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description apidocs
 libbeagle API documentation.
@@ -78,6 +81,9 @@ Dokumentacja API biblioteki libbeagle.
 Summary:	libbeagle - example programs
 Summary(pl.UTF-8):	libbeagle - przykładowe programy
 Group:		Libraries
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description examples
 libbeagle - example programs.
@@ -90,7 +96,7 @@ Summary:	Beagle Python bindings
 Summary(pl.UTF-8):	Wiązania języka Python dla Beagle
 Group:		Libraries/Python
 Requires:	%{name} = %{version}-%{release}
-%pyrequires_eq  python-libs
+Requires:	python-libs
 
 %description -n python-beagle
 Beagle Python bindings.
