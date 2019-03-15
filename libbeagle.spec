@@ -1,13 +1,13 @@
 #
 # Conditional build:
-%bcond_without	apidocs		# don't build API documentation
+%bcond_with	apidocs		# build API documentation
 %bcond_without	python		# don't build python libraries
 
 Summary:	Beagle C interface
 Summary(pl.UTF-8):	Interfejs w C do Beagle
 Name:		libbeagle
 Version:	0.3.9
-Release:	6
+Release:	7
 License:	MIT
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libbeagle/0.3/%{name}-%{version}.tar.bz2
