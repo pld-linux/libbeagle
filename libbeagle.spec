@@ -68,9 +68,7 @@ Summary:	libbeagle API documentation
 Summary(pl.UTF-8):	Dokumentacja API biblioteki libbeagle
 Group:		Documentation
 Requires:	gtk-doc-common
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description apidocs
 libbeagle API documentation.
@@ -82,9 +80,7 @@ Dokumentacja API biblioteki libbeagle.
 Summary:	libbeagle - example programs
 Summary(pl.UTF-8):	libbeagle - przykładowe programy
 Group:		Libraries
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description examples
 libbeagle - example programs.
